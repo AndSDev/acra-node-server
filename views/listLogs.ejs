@@ -57,7 +57,7 @@
 	<script>
 	$(document).ready(function() 
     { 
-        $("#tabletLogs").tablesorter(); 
+        $("#tabletLogs").tablesorter({sortList: [[0,1]]}); 
     } 
 ); 
 
@@ -139,7 +139,8 @@
     <th>Phone model</th> 
     <th>App Version Name</th> 
     <th>App Version</th> 
-    <th>Android Version</th> 
+    <th>Android Version</th>
+	<th>Error</th> 
     <th>Detail</th> 
 </tr> 
 </thead> 
@@ -151,7 +152,8 @@
 		<th><%= element.PHONE_MODEL %></th> 
 		<th><%= element.APP_VERSION_NAME %></th> 
 		<th><%= element.APP_VERSION_CODE %></th> 
-		<th><%= element.ANDROID_VERSION %></th> 
+		<th><%= element.ANDROID_VERSION %></th>
+		<th><%= element.STACK_TRACE.split('\n')[0] %></th> 
 		<th>
 			<a class="btn btn-mini btn-block" href="/logs/<%= appid %>/<%= element._id %>">
 				Detail
@@ -190,10 +192,10 @@ if (mobiles.length) {
     $(document).ready(function(){         
         $.jqplot.config.enablePlugins = true;       
         var s1 = [<%= s1 %>];         
-        var ticks = [<%= ticks %>];                   
+        var ticks = ["<%= ticks %>"];                   
         plot1 = $.jqplot('chart1', [s1], {             
     	// Only animate if we're not using excanvas (not in IE 7 or IE 8)..             
-    	animate: !$.jqplot.use_excanvas, 
+    	//animate: !$.jqplot.use_excanvas, 
         title: 'Mobiles with errors',
     	seriesDefaults:{                 
     	renderer:$.jqplot.BarRenderer,                 
@@ -239,10 +241,10 @@ if (android.length) {
     $(document).ready(function(){         
         $.jqplot.config.enablePlugins = true;       
         var s2 = [<%= s2 %>];         
-        var ticks2 = [<%= ticks2 %>];                   
+        var ticks2 = ["<%= ticks2 %>"];                   
         plot1 = $.jqplot('chart_android', [s2], {             
     	// Only animate if we're not using excanvas (not in IE 7 or IE 8)..             
-    	animate: !$.jqplot.use_excanvas, 
+    	//animate: !$.jqplot.use_excanvas, 
         title: 'Android versions',
     	seriesDefaults:{                 
     	renderer:$.jqplot.BarRenderer,                 
@@ -288,10 +290,10 @@ if (dates.length) {
     $(document).ready(function(){         
         $.jqplot.config.enablePlugins = true;       
         var s3 = [<%= s3 %>];         
-        var ticks3 = [<%= ticks3 %>];                   
+        var ticks3 = ["<%= ticks3 %>"];                   
         plot1 = $.jqplot('chart_dates', [s3], {             
     	// Only animate if we're not using excanvas (not in IE 7 or IE 8)..             
-    	animate: !$.jqplot.use_excanvas, 
+    	//animate: !$.jqplot.use_excanvas, 
         title: 'Dates',
     	seriesDefaults:{                 
     	renderer:$.jqplot.BarRenderer,                 

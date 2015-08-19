@@ -192,7 +192,7 @@ if (mobiles.length) {
     $(document).ready(function(){         
         $.jqplot.config.enablePlugins = true;       
         var s1 = [<%= s1 %>];         
-        var ticks = ["<%= ticks %>"];                   
+        var ticks = [<%- ticks %>];                   
         plot1 = $.jqplot('chart1', [s1], {             
     	// Only animate if we're not using excanvas (not in IE 7 or IE 8)..             
     	//animate: !$.jqplot.use_excanvas, 
@@ -241,7 +241,7 @@ if (android.length) {
     $(document).ready(function(){         
         $.jqplot.config.enablePlugins = true;       
         var s2 = [<%= s2 %>];         
-        var ticks2 = ["<%= ticks2 %>"];                   
+        var ticks2 = [<%- ticks2 %>];                   
         plot1 = $.jqplot('chart_android', [s2], {             
     	// Only animate if we're not using excanvas (not in IE 7 or IE 8)..             
     	//animate: !$.jqplot.use_excanvas, 
@@ -290,7 +290,7 @@ if (dates.length) {
     $(document).ready(function(){         
         $.jqplot.config.enablePlugins = true;       
         var s3 = [<%= s3 %>];         
-        var ticks3 = ["<%= ticks3 %>"];                   
+        var ticks3 = [<%- ticks3 %>];                   
         plot1 = $.jqplot('chart_dates', [s3], {             
     	// Only animate if we're not using excanvas (not in IE 7 or IE 8)..             
     	//animate: !$.jqplot.use_excanvas, 
